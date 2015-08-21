@@ -1,7 +1,7 @@
 var firebase = 'https://movieajaxapp.firebaseio.com/';
 var newMovie;
 var movieListArray = [];
-var editMovie;
+var editMovie = {};
 
 function movie(name, year, genre, description, img){ //creating new movie object
 	this.name = name;
@@ -70,16 +70,16 @@ function displayMovie(){
 					+ '<img class="imgClass" src="' + movieListArray[i].img + '"><br>'
 					+ '<span>Year: ' + movieListArray[i].year + ' </span><br> -- <span> ' + movieListArray[i].genre + ' </span><br>'
 					+ '<span class="descClass">' + movieListArray[i].description + '</span><br><br><br>'
-					+ '<button onclick="createEdit()" class="btn btn-default"> Edit Movie </button><br><br>'
+					+ '<button onclick="createEdit(' + i + ')" class="btn btn-default"> Edit Movie </button><br><br>'
 					+ '<button onclick="deleteMovie(' + i + ')" class="btn btn-default"> Delete Movie </button><br><br>'
 					
 				+ '</li><br>'
 	}
 	document.getElementById('movielist').innerHTML += concatString
 }
-function createEdit(){
+function createEdit(i){
 	var concatString = ""
-	for(var i = 0; i < movieListArray.length; i += 1){
+	
 		console.log(movieListArray[i])
 		concatString += 
 			'<div class="form-group">'
@@ -98,7 +98,6 @@ function createEdit(){
 				+ '<textarea id="edit-img" rows="4" cols="30" placeholder="">' + movieListArray[i].img + '</textarea>'
 			+ '</div>'
 			+ '<button class="btn btn-default"  value="" onclick="updateInfo(' + i + ')"> Submit Changes </button><br><br>'
-	}
 	document.getElementById('editDiv').innerHTML += concatString
 
 }
@@ -108,7 +107,13 @@ function updateInfo(i){
 	var genre = document.getElementById('edit-genre').value;
 	var description = document.getElementById('edit-descripton').value;
 	var img = document.getElementById('edit-img').value;
-	editMovie = new movie(name, year, genre, description, img)
+	// editMovie = new movie(name, year, genre, description, img)
+	editMovie.name = name;
+	editMovie.year = year;
+	editMovie.genre = genre;
+	editMovie.description = description;
+	editMovie.img = img;
+
 	console.log(editMovie)
 	addInfo(i)
 	editMovie = {};
@@ -132,6 +137,7 @@ function addInfo(i){
 	req.send(JSON.stringify(editMovie));
 
 }
+
 function deleteMovie(i) {
    var req = new XMLHttpRequest();
    req.open('DELETE', firebase + movieListArray[i].id + '/.json');
