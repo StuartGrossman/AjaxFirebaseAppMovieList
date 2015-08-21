@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>My App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap_theme.css">
+	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/superhero/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body class="container-fluid">
+
+	<script src="/javascript/app.js"></script>
+	<center>
+	<h1>Movie List</h1>
+	</center>
+<div class="row">
+	
+	  <div class="col-md-12">
+
+		<div class="col-md-3">
+			<h3>Add Movie</h3>
+			<div class="form-group">
+				<input id="name" placeholder="Name of Movie"></input>
+			</div>
+			<div class="form-group">
+				<input id="year" placeholder="Year"></input>
+			</div>
+			<div class="form-group">
+				<input id="genre" placeholder="genre"></input>
+			</div>
+			<div class="form-group">
+				<textarea id="description" rows="4" cols="40" placeholder="Description of movie"></textarea>
+			</div>
+			<div class="form-group">
+				<input id="img" placeholder="image"></input>
+			</div>
+			<button onclick="addMovieToDataBase()" class="btn btn-default">Sumbit</button>
+		</div>
+
+		<div class="row">
+			<div id="listDiv"  class="col-md-3 col-md-offset-1">
+				<ul id="movielist">
+					
+				</ul>
+			</div>
+			<div id="editDiv"  class="col-md-3 col-md-offset-1">
+				<h3> Edit Form </h3>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+<!-- <div class="form-group">
+				<input id="description" placeholder="Description of movie"></input>
+			</div>
+			<div class="form-group">
+				<input id="description" placeholder="Description of movie"></input>
+			</div>
+			<div class="form-group">
+				<input id="description" placeholder="Description of movie"></input>
+			</div>
+			<div class="form-group">
+				<textarea id="description" rows="4" cols="30" placeholder="Description of movie"></textarea>
+			</div>
+			<div class="form-group">
+				<input id="description" placeholder="Description of movie"></input>
+			</div>
+			<button class="btn btn-default" onclick=""> Submit Changes </button> -->
+<!-- <li>
+					<span style="font-size: 25px;"> Star Wars </span><br><br>
+					<img class="imgClass" src="http://ia.media-imdb.com/images/M/MV5BMTU4NTczODkwM15BMl5BanBnXkFtZTcwMzEyMTIyMw@@._V1_SX214_AL_.jpg"><br>
+					<span>Year: 1997</span><br> -- <span>Action Adventure/ Si-Fi</span><br>
+					<span class="descClass">Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the universe from the Empire's world-destroying battle-station, while also attempting to rescue Princess Leia from the evil Darth Vader.</span><br>
+					<button class="btn btn-default"> Delete Movie </button><br><br>
+					<button class="btn btn-default"> Edit Movie </button>
+				</li> -->
+</html>
